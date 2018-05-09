@@ -1,11 +1,11 @@
 #!/usr/bin/python
-
 from os import system
 from smtplib import SMTP
 from datetime import datetime
 from time import time,sleep
 from sys import argv,exit
 
+# make sure you enter your email details here
 mailfrom = ''
 mailto = ['']
 smtpserver = 'smtp.gmail.com:587'
@@ -16,8 +16,7 @@ if len(argv) < 2:
     print("Usage: {} <openvpn-config-file>".format(argv[0]))
     exit(1)
 
-vpn_cmd = 'openvpn --config {}'.format(argv[1])
-print(vpn_cmd)
+
 
 def send_mail(msg):
         smtpsock = SMTP(smtpserver)
@@ -28,6 +27,7 @@ def send_mail(msg):
         smtpsock.sendmail(mailfrom,mailto,msg)
         smtpsock.quit()
 
+vpn_cmd = 'openvpn --config {}'.format(argv[1])
 backoff = 1
 while(True):
     prev_time = time()
