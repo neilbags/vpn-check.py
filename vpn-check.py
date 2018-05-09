@@ -1,4 +1,3 @@
-
 #!/usr/bin/python
 
 from os import system
@@ -37,7 +36,6 @@ while(True):
     if backoff == 1:
         send_mail("{} died with exit status {}, was connected for {} minutes.".format(argv[1],status,int(connected_time/60)))
     if (connected_time < 60):
-            print("Sleeping {} seconds".format(2**backoff))
             sleep(2**backoff)
             backoff += 1
     else:
