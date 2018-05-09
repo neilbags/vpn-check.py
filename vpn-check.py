@@ -16,8 +16,6 @@ if len(argv) < 2:
     print("Usage: {} <openvpn-config-file>".format(argv[0]))
     exit(1)
 
-
-
 def send_mail(msg):
         smtpsock = SMTP(smtpserver)
         smtpsock.ehlo()
